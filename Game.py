@@ -42,6 +42,16 @@ sprite2.rect.x = random.randint(0, SCREEN_WIDTH - sprite1.rect.width)
 sprite2.rect.y = random.randint(0, SCREEN_HEIGHT - sprite1.rect.height)
 all_sprites.add(sprite2)
 
+sprite3 = Sprite(pygame.Color('violet'), 20, 30)
+sprite3.rect.x = random.randint(0, SCREEN_WIDTH - sprite1.rect.width)
+sprite3.rect.y = random.randint(0, SCREEN_HEIGHT - sprite1.rect.height)
+all_sprites.add(sprite3)
+
+sprite4 = Sprite(pygame.Color('pink'), 20, 30)
+sprite4.rect.x = random.randint(0, SCREEN_WIDTH - sprite1.rect.width)
+sprite4.rect.y = random.randint(0, SCREEN_HEIGHT - sprite1.rect.height)
+all_sprites.add(sprite4)
+
 running, won = True, False
 clock = pygame.time.Clock()
 
@@ -65,6 +75,14 @@ while running:
             all_sprites.remove(sprite2)
             won = True
             
+        if sprite1.rect.colliderect(sprite3.rect):
+            all_sprites.remove(sprite3)  
+            
+            
+        if sprite1.rect.colliderect(sprite4.rect):
+            all_sprites.remove(sprite4) 
+            
+             
     screen.blit(background_image, (0,0))
     all_sprites.draw(screen)
     
